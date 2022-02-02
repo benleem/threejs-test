@@ -1,25 +1,53 @@
 import { Suspense, useEffect, useState, useRef } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Canvas} from '@react-three/fiber';
 import { OrbitControls, Stars} from '@react-three/drei';
 import Earth from './components/Earth';
+import Atmoshpere from './components/Atmoshpere';
 import Loading from './components/Loading';
 import InputCard from './components/InputCard';
 
 const App = () => {
     const [latitude, setLatitude] = useState('18.2208');
     const [longitude, setLongitude] = useState('-66.5901');
-    const canvas = useRef();
 
+    const [pinX, setPinX] = useState();
+    const [pinY, setPinY] = useState();
+    const [pinZ, setPinZ] = useState();
+
+    const [rotation, setRotation] = useState(true);
+
+    const canvas = useRef();
+      
+    const convertCoord = () =>{
+        // convert provided latitiude and longitude to radians
+        let lonRad = -longitude * (Math.PI / 180); 
+        let latRad = latitude * (Math.PI / 180);
+        let d = 1;
+
+        // convert radians to cartesian coordinates
+        setPinX(Math.cos(latRad) * Math.cos(lonRad) * d);
+        setPinY(Math.sin(latRad) * d);
+        setPinZ(Math.cos(latRad) * Math.sin(lonRad) * d);
+    }
+    
+    useEffect(() => {
+        convertCoord();
+    }, [latitude, longitude]);
+    
     return (
-        <div className='App' onMouseDown={() => (canvas.current.style.cursor = 'grabbing')} onMouseUp={() => (canvas.current.style.cursor = 'grab')}>
+        <div className='App'
+        onMouseDown={() => (canvas.current.style.cursor = 'grabbing')}
+        onMouseUp={() => (canvas.current.style.cursor = 'grab')}
+        >
             <Suspense fallback={Loading()}>
-                <InputCard setLatitude={setLatitude} setLongitude={setLongitude}/>
-                <Canvas ref={canvas} style={{height:'100vh'}} camera={{position:[0,0,1.75]}} >
-                    <OrbitControls zoomSpeed={.6} minDistance={1.5} maxDistance={2}/>
-                    <ambientLight intensity={.5}/>
-                    <spotLight position={[100, 15, 15]} angle={0.3} intensity={2} color='rgb(247,245,207)'/>
+                <InputCard rotation={rotation} setRotation={setRotation} setLatitude={setLatitude} setLongitude={setLongitude}/>
+                <Canvas ref={canvas} style={{height:'100vh'}}>
+                    <OrbitControls zoomSpeed={.4} minDistance={1.35} maxDistance={2}/>
+                    {/* <ambientLight intensity={0.1}/> */}
+                    <pointLight position={[100, 0, 100]} intensity={2} decay={2} castShadow/>
+                    <Earth rotation={rotation} x={pinX} y={pinY} z={pinZ}/>
+                    <Atmoshpere/>
                     <Stars/>
-                    <Earth lat={latitude} lon={longitude}/>
                 </Canvas>
             </Suspense>
         </div>

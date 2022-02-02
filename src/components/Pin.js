@@ -1,14 +1,7 @@
-const Pin = ({ lat, lon }) => {
-    var lonRad = -lon * (Math.PI / 180);
-    var latRad = lat * (Math.PI / 180);
-    var d = 1;
-
+const Pin = ({ x, y, z }) => {
     return(
-        <mesh receiveShadow={true} castShadow={true} position={[
-            Math.cos(latRad) * Math.cos(lonRad) * d,
-            Math.sin(latRad) * d,
-            Math.cos(latRad) * Math.sin(lonRad) * d]}>
-            <sphereBufferGeometry args={[0.01, 32, 32]} />
+        <mesh receiveShadow={true} castShadow={true} position={[x,y,z]}>
+            <sphereBufferGeometry args={[0.008, 32, 32]} />
             <meshStandardMaterial color='red'/>
         </mesh>
     );

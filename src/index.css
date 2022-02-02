@@ -7,3 +7,7 @@
 .App{
   background-color: black;
 }
+
+canvas{
+  cursor: grab;
+}
