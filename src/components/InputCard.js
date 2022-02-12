@@ -3,6 +3,7 @@ import './input-card.css'
 
 const InputCard = ({ rotation, setRotation, setLatitude, setLongitude}) => {
     const form = useRef();
+    
     const handleSubmit = (e) =>{
         e.preventDefault();
         setLongitude(e.target.longitude.value);
