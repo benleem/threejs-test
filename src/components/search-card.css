@@ -1,0 +1,13 @@
+.search-card{
+    height: 100vh;
+    background-color: #36373d;
+    z-index: -1;
+}
+
+.search-form{
+    padding: 1rem 1rem;
+}
+
+.search-form input{
+    margin-right: 1rem;
+}

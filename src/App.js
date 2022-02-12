@@ -3,11 +3,11 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars} from '@react-three/drei';
 import Earth from './components/Earth';
 import Loading from './components/Loading';
-import InputCard from './components/InputCard';
+import MenuBar from './components/MenuBar';
 
 const App = () => {
-    const [latitude, setLatitude] = useState('18.2208');
-    const [longitude, setLongitude] = useState('-66.5901');
+    const [latitude, setLatitude] = useState(18.2208);
+    const [longitude, setLongitude] = useState(-66.5901);
 
     const [pinX, setPinX] = useState();
     const [pinY, setPinY] = useState();
@@ -39,14 +39,16 @@ const App = () => {
         onMouseUp={() => (canvas.current.style.cursor = 'grab')}
         >
             <Suspense fallback={Loading()}> 
-                <InputCard rotation={rotation} setRotation={setRotation} setLatitude={setLatitude} setLongitude={setLongitude}/>
+                <MenuBar rotation={rotation} setRotation={setRotation} setLatitude={setLatitude} setLongitude={setLongitude}/>
+                {/* <InputCard rotation={rotation} setRotation={setRotation} setLatitude={setLatitude} setLongitude={setLongitude}/> */}
                 <Canvas ref={canvas} style={{height:'100vh'}}>
-                    <OrbitControls zoomSpeed={.4} 
-                    minDistance={1.3} 
-                    // maxDistance={2}
+                    <OrbitControls 
+                    zoomSpeed={.4} 
+                    minDistance={1.2} 
+                    maxDistance={2.5}
                     />
                     <ambientLight intensity={0.3}/>
-                    <pointLight position={[100, 0, 100]} intensity={2} decay={2} castShadow/>
+                    <pointLight position={[100, 0, -30]} intensity={2} decay={2} castShadow/>
                     <Earth canvas={canvas} rotation={rotation} x={pinX} y={pinY} z={pinZ}/>
                     <Stars/>
                 </Canvas>

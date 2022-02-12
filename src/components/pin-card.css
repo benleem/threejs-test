@@ -1,0 +1,16 @@
+.pin-wrapper{
+    height: 100vh;
+    background-color: #36373d;
+    font-size: 2rem;
+    color: white;
+    z-index: -1;
+    padding:  0 1rem;
+}
+
+.pin-wrapper input:nth-child(2){
+    margin:0 1rem;
+}
+
+.pin-wrapper button{
+    color: white;
+}

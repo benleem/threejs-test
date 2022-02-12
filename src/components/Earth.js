@@ -26,7 +26,7 @@ const Earth = ({ canvas, rotation, x, y, z }) => {
             <PerspectiveCamera makeDefault fov={90} position={[x, y, z]}/>
             <mesh receiveShadow>
                 <sphereBufferGeometry args={[1, 32, 32]}/>
-                <meshStandardMaterial map={map} bumpMap={bumpMap} bumpScale={0.4} roughness={1} metalness={0}/>
+                <meshStandardMaterial side={THREE.DoubleSide} map={map} bumpMap={bumpMap} bumpScale={0.05} roughness={1} metalness={0}/>
             </mesh>
             <Pin canvas={canvas} x={x} y={y} z={z}/>
             <Clouds/>
