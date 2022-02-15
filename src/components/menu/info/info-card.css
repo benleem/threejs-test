@@ -1,0 +1,27 @@
+.info-card{
+    padding: 1rem;
+}
+
+.info-card-title{
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: 'Archivo', sans-serif;
+}
+
+.info-card-summary{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+}
+
+.info-card-url{
+    font-family: 'Roboto', sans-serif;
+    color: #8ab4f8;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.info-card-url:hover{
+    border-bottom: 1px solid #8ab4f8;
+}

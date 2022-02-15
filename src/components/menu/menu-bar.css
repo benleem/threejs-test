@@ -1,0 +1,46 @@
+.menu-bar{
+    position: absolute;
+    color: white;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+}
+
+.nav-buttons{
+    display: flex;
+    flex-direction: column;
+    background-color: #202125;
+}
+
+.nav-buttons button{
+    border: none;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    margin: 30px 10px;
+}
+
+.nav-buttons img{
+    max-width: 35px;
+}
+
+.nav-buttons button:first-child{
+    margin-top: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.nav-buttons button:nth-child(2){
+    margin-bottom: 20px;
+}
+
+.nav-buttons button:last-child{
+    margin-bottom: 0px;
+}
+
+.roll-dice{
+    transition: all 0.4s ease-in-out;
+}
+
+.roll-dice.active{
+    transform: rotate(360deg);
+}

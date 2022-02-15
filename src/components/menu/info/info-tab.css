@@ -1,0 +1,17 @@
+.info-tab{
+    background-color: #36373d;
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-height: 450px;
+    max-width: 300px;
+    z-index: -2;
+    overflow-y: scroll;
+}
+
+.no-wiki-info{
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: 'Archivo', sans-serif;
+}

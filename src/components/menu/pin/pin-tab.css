@@ -1,0 +1,82 @@
+.pin-wrapper{
+    height: 100vh;
+    background-color: #36373d;
+    font-size: 2rem;
+    color: white;
+    z-index: -1;
+    width: min-content;
+}
+
+.coordinate-form{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: .5rem;
+    overflow-y: hidden;
+}
+
+.coordinate-form input{
+    /* border-radius: .5rem; */
+    border: none;
+    color: white;
+    padding: 1rem;
+    background-color: #36373d;
+    box-shadow: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 300;
+}
+
+.coordinate-form button{
+    padding: 0.5rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: #36373d;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+    border-top: 1px solid white;
+}
+
+.coordinate-form button:hover{
+    background-color: #36373d;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.coordinate-form input:nth-child(2){
+    border-top: 1px solid white;
+}
+
+.pin-tip{
+    margin: 1rem;
+}
+
+.pin-tip p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.pin-tip p:first-child{
+    font-weight: 400;
+    width: min-content;
+    font-size: 1.05rem;
+    border-bottom: 2px solid white;
+}
+
+.valid-lat{
+    padding-top: 0.3rem;
+}
+
+.valid-lon{
+    padding-bottom: 0.3rem;
+}
+
+.tip02{
+    padding-bottom: 0.3rem;
+}
