@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
 import InfoCard from './InfoCard';
-import MenuLoading from '../MenuLoading'
-import './info-tab.css';
+import MenuLoading from '../bar/MenuLoading'
+import styles from'./info-tab.module.css';
 
 const InfoTab = ({ wikiLoading, wikiData, infoActive }) => {
     const checkLoading = () => {
         if(wikiLoading === true){
             return(
-                <MenuLoading/>
+                <MenuLoading styleType='infoTab'/>
             )
         }else{
             return(
                 wikiData.length < 1 ? 
-                <p className="no-wiki-info">There is no Wiki information on this location</p> : 
+                <p className={styles.noWikiInfo}>There is no Wiki information on this location</p> : 
                 wikiData.map(article => <InfoCard key={article.wikipediaUrl} article={article}/>)
             )
         }
     }
 
     return (
-        <motion.div className="info-tab"
+        <motion.div className={styles.infoTab}
         initial={{ 
             y: '-100vh', 
             opacity: 0 

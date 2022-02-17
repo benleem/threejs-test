@@ -1,11 +1,11 @@
-import './info-card.css';
+import styles from './info-card.module.css';
 
 const InfoCard = ({ article }) => {
     return (
-        <div className='info-card'>
-            <p className='info-card-title'>{article.title}</p>
-            <p className='info-card-summary'>{article.summary}</p>
-            <a className='info-card-url' href={`https://${article.wikipediaUrl}`} target='_blank'>Learn more</a>
+        <div className={styles.infoCard}>
+            <p className={styles.infoCardTitle}>{article.title}</p>
+            <p className={styles.infoCardSummary}>{article.summary}</p>
+            <a className={styles.infoCardUrl} href={`https://${article.wikipediaUrl}`} target='_blank'>Learn more</a>
         </div>
     );
 };

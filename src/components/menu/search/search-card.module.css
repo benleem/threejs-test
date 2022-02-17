@@ -1,35 +1,36 @@
-.search-card{
+.searchCard{
     color: white;
     display: inline-block;
     overflow-x: hidden;
     text-align: start;
     font-size: 0.9rem;
     padding: 1rem 1rem;
+    width: 100%;
     border: none;
     background: none;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
 }
 
-.search-card:hover{
+.searchCard:hover{
     background-color: grey;
     transition: all 0.3s ease-in-out;
 }
 
-.search-card p{
+.searchCard p{
     font-size: 0.9rem;
     font-weight: 300;
 }
 
-.place-name{
+.placeName{
     font-weight: 500;
     font-size: 1.1rem;
 }
 
-.place-lat{
+.placeLat{
     padding-top: 0.25rem;
 }
 
-.place-lon{
+.placeLon{
     padding: 0.10rem 0;
 }

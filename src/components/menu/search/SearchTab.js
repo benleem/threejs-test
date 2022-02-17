@@ -2,29 +2,33 @@ import { useState} from 'react';
 import axios from 'axios';
 import { motion } from "framer-motion";
 import SearchCard from './SearchCard';
-import MenuLoading from '../MenuLoading';
-import './search-tab.css';
+import MenuLoading from '../bar/MenuLoading';
+import styles from './search-tab.module.css';
 
-const SearchTab = ({ setSearchLoading, searchLoading, setInfoActive, setSearchActive, setLatitude, setLongitude }) => {
+const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }) => {
+    const [searchLoading, setSearchLoading] = useState();
     const [cards, setCards] = useState([]);
 
     const checkLoading = () => {
         if(searchLoading === true){
             return(
-                <MenuLoading/>
+                <MenuLoading styleType='searchTab'/>
             )
         }else{
             return(
-                <div className='search-cards-container'>
-                    {cards.map(card => 
-                        <SearchCard 
-                        setInfoActive={setInfoActive} 
-                        setSearchActive={setSearchActive}  
-                        setLatitude={setLatitude} 
-                        setLongitude={setLongitude} 
-                        card={card} 
-                        key={card.geonameId}/>
-                    )}
+                <div className={styles.searchCardContainer}>
+                    {(cards.length < 1 && searchLoading === false)?
+                        <p className={styles.searchError}>We do not have this location on record</p>:
+                        cards.map(card => 
+                            <SearchCard 
+                            setInfoActive={setInfoActive} 
+                            setSearchActive={setSearchActive}  
+                            setLatitude={setLatitude} 
+                            setLongitude={setLongitude} 
+                            card={card} 
+                            key={card.geonameId}/>
+                        )
+                    }
                 </div>   
             )
         }
@@ -45,13 +49,13 @@ const SearchTab = ({ setSearchLoading, searchLoading, setInfoActive, setSearchAc
     }
     
     return (
-        <motion.div className='search-tab'
+        <motion.div className={styles.searchTab}
         initial={{ x: '-100vw', opacity: 1 }}
         animate={{ x:0, opacity: 1 }}
         exit={{ x:'-100vw', opacity: 0 }}
         transition={{type: 'spring', duration: 0.3, bounce: 0}}
         >
-            <form className='search-form' onSubmit={(e) => handleSubmit(e)}>
+            <form className={styles.searchForm} onSubmit={(e) => handleSubmit(e)}>
                 <input autoComplete='off' type="text" name='search' placeholder='City/Country name'/>
                 <button>Submit</button>
             </form>

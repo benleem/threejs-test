@@ -1,4 +1,4 @@
-.info-tab{
+.infoTab{
     background-color: #36373d;
     position: fixed;
     top: 0;
@@ -9,9 +9,25 @@
     overflow-y: scroll;
 }
 
-.no-wiki-info{
+.noWikiInfo{
     padding: 1rem;
     font-weight: 600;
     font-size: 1.2rem;
     font-family: 'Archivo', sans-serif;
+}
+
+@media (max-width: 450px) {
+    .infoTab{
+        max-width: 200px;
+        max-height: 300px;
+    }
+
+}
+
+@media (max-height: 450px) {
+    .infoTab{
+        max-width: 200px;
+        max-height: 300px;
+    }
+
 }

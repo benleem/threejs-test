@@ -1,0 +1,58 @@
+.menuBar{
+    position: absolute;
+    color: white;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+}
+
+.navButtons{
+    display: flex;
+    flex-direction: column;
+    background-color: #202125;
+}
+
+.navButtons button:first-child{
+    margin-top: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.navButtons button:nth-child(2){
+    margin-bottom: 20px;
+}
+
+.navButtons button:last-child{
+    margin-bottom: 0px;
+}
+
+.navButton{
+    border: none;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    margin: 30px 10px;
+}
+
+.navButton img{
+    max-width: 35px;
+}
+
+@media (max-height: 450px) {
+    .navButton{
+        margin: 1rem 0.5rem;
+    }
+
+    .navButtons button:first-child{
+        margin-bottom: 0;
+        margin-bottom: 0.3rem;
+    }
+    
+    .navButtons button:nth-child(2){
+        margin-bottom:0.3rem;
+    }
+    
+    .navButtons button:last-child{
+        margin-bottom: 0px;
+    }
+
+}

@@ -1,4 +1,4 @@
-.search-tab{
+.searchTab{
     height: 100vh;
     background-color: #36373d;
     z-index: -1;
@@ -6,7 +6,7 @@
     overflow-y: scroll;
 }
 
-.search-form{
+.searchForm{
     display: flex;
     /* background-color: blue; */
     margin: 1rem;
@@ -16,7 +16,7 @@
     overflow-x: hidden;
 }
 
-.search-form input{
+.searchForm input{
     border-radius: .5rem;
     border: none;
     color: white;
@@ -30,7 +30,7 @@
 
 }
 
-.search-form button{
+.searchForm button{
     padding-right: 0px;
     cursor: pointer;
     background: none;
@@ -44,13 +44,41 @@
     font-family: 'Archivo', sans-serif;
 }
 
-.search-form button:hover{
+.searchForm button:hover{
     color: white;
     background: none;
     transition: all 0.3s ease-in-out
 }
 
-.search-cards-container{
+.searchCardsContainer{
     display: flex;
     flex-direction: column;
+}
+
+.searchError{
+    padding: 1rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    font-family: 'Archivo', sans-serif;
+
+}
+
+@media (max-width: 450px) {
+    .searchTab{
+        width: 100%;
+    }
+
+    .searchForm input{
+        width: 100%;
+    }
+}
+
+@media (max-width: 300px) {
+    .searchForm input{
+        font-size: 1rem;
+    }
+
+    .searchForm button{
+        font-size: 1rem;
+    }
 }

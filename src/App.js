@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars} from '@react-three/drei';
 import Earth from './components/threejs/Earth';
 import Loading from './components/Loading';
-import MenuBar from './components/menu/MenuBar';
+import MenuBar from './components/menu/bar/MenuBar';
 import axios from 'axios';
 
 const App = () => {
@@ -22,9 +22,6 @@ const App = () => {
     // wiki data
     const [wikiData, setWikiData] = useState([]);
     const [wikiLoading, setWikiLoading] = useState(false);
-
-    //search
-    const [searchLoading, setSearchLoading] = useState(false);
 
     const canvas = useRef();
 
@@ -63,8 +60,7 @@ const App = () => {
         onMouseUp={() => (canvas.current.style.cursor = 'grab')}
         >
             <Suspense fallback={Loading()}> 
-                <MenuBar setSearchLoading={setSearchLoading} 
-                searchLoading={searchLoading} 
+                <MenuBar
                 wikiLoading={wikiLoading} 
                 wikiData={wikiData} 
                 rotation={rotation} 

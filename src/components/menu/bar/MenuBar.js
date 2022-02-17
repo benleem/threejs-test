@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { AnimatePresence } from "framer-motion";
-import PinTab from './pin/PinTab';
-import SearchTab from './search/SearchTab';
-import InfoTab from './info/InfoTab';
-import './menu-bar.css';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import PinTab from '../pin/PinTab';
+import SearchTab from '../search/SearchTab';
+import InfoTab from '../info/InfoTab';
+import styles from './menu-bar.module.css';
 
-const MenuBar = ({ setSearchLoading, searchLoading, wikiLoading, wikiData, rotation, setRotation, setLatitude, setLongitude }) => {
+const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, setLongitude }) => {
     const [pinActive, setPinActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [infoActive, setInfoActive] = useState(false);
@@ -25,24 +25,27 @@ const MenuBar = ({ setSearchLoading, searchLoading, wikiLoading, wikiData, rotat
         setLatitude(randomLat);
         setLongitude(randomLon);
     }
-
+    
     return (
-        <div  className='menu-bar'>
-            <div className='nav-buttons'>
-                <button className='rotation-control' onClick={() => setRotation(!rotation)}>
+        <div  className={styles.menuBar}>
+            <div className={styles.navButtons}>
+                <button className={styles.navButton} onClick={() => setRotation(!rotation)}>
                     <img src={rotation === true ? "./img/pause.svg" : "./img/play.svg"} alt="pause/play" />
                 </button>
-                <button className='search-button' onClick={() => {setSearchActive(!searchActive);setPinActive(false)}}>
+                <button className={styles.navButton} onClick={() => {setSearchActive(!searchActive);setPinActive(false);}}>
                     <img src="./img/search.svg" alt="search" />
                 </button>
-                <button className='pin-button' onClick={() => {setPinActive(!pinActive);setSearchActive(false)}}>
+                <button className={styles.navButton} onClick={() => {setPinActive(!pinActive);setSearchActive(false)}}>
                     <img src="./img/pin.svg" alt="pin" />
                 </button>
-                <button className={isClicked ? 'roll-dice' : 'roll-dice active'}
-                onClick={() => {randomize();setPinActive(false);setSearchActive(false)}}>
+                <motion.button className={styles.navButton} onClick={() => {randomize();setPinActive(false);setSearchActive(false)}}
+                animate={isClicked ? {rotate:360} : {rotate:0} }
+                transition={{duration: 0.3}}
+
+                >
                     <img src="./img/dice.svg" alt="random" />
-                </button>
-                <button className='info-button' onClick={() => setInfoActive(!infoActive)}>
+                </motion.button>
+                <button className={styles.navButton} onClick={() => setInfoActive(!infoActive)}>
                     <img src="./img/info.svg" alt="place info" />
                 </button>
             </div>
@@ -50,7 +53,7 @@ const MenuBar = ({ setSearchLoading, searchLoading, wikiLoading, wikiData, rotat
             <PinTab setPinActive={setPinActive} setLatitude={setLatitude} setLongitude={setLongitude}/> : 
             null}
             {searchActive ?
-            <SearchTab setSearchLoading={setSearchLoading} searchLoading={searchLoading} setInfoActive={setInfoActive} setSearchActive={setSearchActive} setLatitude={setLatitude} setLongitude={setLongitude}/> : 
+            <SearchTab setInfoActive={setInfoActive} setSearchActive={setSearchActive} setLatitude={setLatitude} setLongitude={setLongitude}/> : 
             null}
             <AnimatePresence
             initial={false}

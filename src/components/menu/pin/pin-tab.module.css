@@ -1,13 +1,14 @@
-.pin-wrapper{
+.pinWrapper{
     height: 100vh;
     background-color: #36373d;
     font-size: 2rem;
     color: white;
     z-index: -1;
     width: min-content;
+    overflow-y: scroll;
 }
 
-.coordinate-form{
+.coordinateForm{
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -17,7 +18,7 @@
     overflow-y: hidden;
 }
 
-.coordinate-form input{
+.coordinateForm input{
     /* border-radius: .5rem; */
     border: none;
     color: white;
@@ -30,7 +31,7 @@
     font-weight: 300;
 }
 
-.coordinate-form button{
+.coordinateForm button{
     padding: 0.5rem;
     border: none;
     background-color: white;
@@ -42,41 +43,52 @@
     border-top: 1px solid white;
 }
 
-.coordinate-form button:hover{
+.coordinateForm button:hover{
     background-color: #36373d;
     color: white;
     transition: all 0.3s ease-in-out;
 }
 
-.coordinate-form input:nth-child(2){
+.coordinateForm input:nth-child(2){
     border-top: 1px solid white;
 }
 
-.pin-tip{
+.pinTip{
     margin: 1rem;
 }
 
-.pin-tip p{
+.pinTip p{
     font-family: 'Roboto', sans-serif;
     font-size: 0.8rem;
     font-weight: 300;
 }
 
-.pin-tip p:first-child{
+.pinTip p:first-child{
     font-weight: 400;
     width: min-content;
     font-size: 1.05rem;
     border-bottom: 2px solid white;
 }
 
-.valid-lat{
+.validLat{
     padding-top: 0.3rem;
 }
 
-.valid-lon{
+.validLon{
     padding-bottom: 0.3rem;
 }
 
 .tip02{
     padding-bottom: 0.3rem;
+}
+
+@media (max-width: 450px) {
+    .pinWrapper{
+        width: 100%;
+    }
+
+    .coordinateForm input{
+        width: 100%;
+    }
+
 }

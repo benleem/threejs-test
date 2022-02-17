@@ -1,0 +1,20 @@
+.loadingInfoTab{
+    width: 300px;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.loadingSearchTab{
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 450px) {
+    .loadingInfoTab{
+        width: 200px;
+    }
+}
