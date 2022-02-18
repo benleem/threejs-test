@@ -8,9 +8,12 @@ import bumpImg from '../../textures/height-map.jpeg';
 
 const Earth = ({ canvas, rotation, x, y, z }) => {
     const earth = useRef();
+
+    // drei tool to load in textures
     const [map, bumpMap] = useTexture([earthImg, bumpImg]);
 
     useFrame(() => {
+        // for each frame check if rotation is true, if true, rotate earth ref by last value plus new value
         if (rotation === true) {
             earth.current.rotation.y += 0.0008;
         }

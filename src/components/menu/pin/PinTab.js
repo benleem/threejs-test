@@ -4,8 +4,12 @@ import styles from './pin-tab.module.css';
 const PinTab = ({ setPinActive, setLatitude, setLongitude}) => {
     const handleSubmit = (e) =>{
         e.preventDefault();
+
+        // update lon/lat state
         setLongitude(e.target.longitude.value);
         setLatitude(e.target.latitude.value);
+
+        // close pin tab
         setPinActive(false)
     }
 

@@ -1,22 +1,24 @@
 import { Suspense, useEffect, useState, useRef } from 'react';
+
+import axios from 'axios';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars} from '@react-three/drei';
-import Earth from './components/threejs/Earth';
-import Loading from './components/Loading';
-import MenuBar from './components/menu/bar/MenuBar';
-import axios from 'axios';
+
+import Earth from './threejs/Earth';
+import Loading from './loading/Loading';
+import MenuBar from './menu/bar/MenuBar';
 
 const App = () => {
     // pin's initital coordianates, longitude/latitude
     const [latitude, setLatitude] = useState(18.2208);
     const [longitude, setLongitude] = useState(-66.5901);
 
-    // pin's cartesian coordinaates on x,y,z plane
+    // pin's cartesian coordinaates on x,y,z planes
     const [pinX, setPinX] = useState();
     const [pinY, setPinY] = useState();
     const [pinZ, setPinZ] = useState();
     
-    // earth group rotation
+    // three js earth group rotation control
     const [rotation, setRotation] = useState(true);
 
     // wiki data

@@ -10,11 +10,15 @@ const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }
     const [cards, setCards] = useState([]);
 
     const checkLoading = () => {
+        // if search api call is loading, return loading component
         if(searchLoading === true){
             return(
                 <MenuLoading styleType='searchTab'/>
             )
-        }else{
+        }
+
+        // else return map of cards or error message based on cards.length
+        else{
             return(
                 <div className={styles.searchCardContainer}>
                     {(cards.length < 1 && searchLoading === false)?
@@ -38,6 +42,7 @@ const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }
         e.preventDefault();
         let search = e.target.search.value;
         try {
+            // get data for cards from search variable
             setSearchLoading(true);
             const data = await axios.get(`http://api.geonames.org/search?q=${search}&maxRows=25&type=json&username=${process.env.REACT_APP_ACCOUNT_KEY}`);
             setCards(data.data.geonames);
