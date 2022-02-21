@@ -9,7 +9,7 @@ import InfoTab from '../info/InfoTab';
 
 import styles from './menu-bar.module.css';
 
-const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, setLongitude }) => {
+const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, setLongitude, pinX, pinY, pinZ, camera}) => {
     // menu tabs mounting state
     const [pinActive, setPinActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
@@ -27,14 +27,24 @@ const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, se
             setSearchActive={setSearchActive} 
             infoActive={infoActive} 
             setInfoActive={setInfoActive}
+            pinX={pinX} 
+            pinY={pinY} 
+            pinZ={pinZ} 
+            camera={camera}
             />
-
             {pinActive ?
-                <PinTab setPinActive={setPinActive} setLatitude={setLatitude} setLongitude={setLongitude}/> : 
+                <PinTab setPinActive={setPinActive} 
+                setLatitude={setLatitude} 
+                setLongitude={setLongitude} 
+                />: 
                 null
             }
             {searchActive ?
-                <SearchTab setInfoActive={setInfoActive} setSearchActive={setSearchActive} setLatitude={setLatitude} setLongitude={setLongitude}/> : 
+                <SearchTab setInfoActive={setInfoActive} 
+                setSearchActive={setSearchActive} 
+                setLatitude={setLatitude} 
+                setLongitude={setLongitude}
+                />: 
                 null
             }
             <AnimatePresence
@@ -42,7 +52,9 @@ const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, se
             exitBeforeEnter={true}
             >
                 {infoActive ?
-                    <InfoTab wikiLoading={wikiLoading} wikiData={wikiData} infoActive={infoActive} setInfoActive={setInfoActive}/> :
+                    <InfoTab wikiLoading={wikiLoading} 
+                    wikiData={wikiData} 
+                    />:
                     null
                 }
             </AnimatePresence>

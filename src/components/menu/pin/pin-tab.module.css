@@ -6,12 +6,13 @@
     z-index: -1;
     width: min-content;
     overflow-y: scroll;
+    padding: 0 1rem;
 }
 
 .coordinateForm{
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 1rem 0;
     color: white;
     border: 1px solid white;
     border-radius: .5rem;
@@ -54,7 +55,7 @@
 }
 
 .pinTip{
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .pinTip p{

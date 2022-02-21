@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import styles from './nav-buttons.module.css';
 
-const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchActive, setSearchActive, pinActive, setPinActive, infoActive, setInfoActive}) => {
+const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchActive, setSearchActive, pinActive, setPinActive, infoActive, setInfoActive, pinX, pinY, pinZ, camera}) => {
     // click variable for dice roll animation
     const [isClicked, setIsClicked] = useState(false);
 
@@ -23,6 +23,15 @@ const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchAct
         setLongitude(randomLon);
     }
 
+    const resetCamera = () => {
+        //reset camera to pin position if info tab isn't open
+        if (infoActive === false) {
+            camera.current.position.x = pinX;
+            camera.current.position.y = pinY;
+            camera.current.position.z = pinZ;  
+        }
+    }
+
     return (
         <div className={styles.navButtons}>
             <button className={styles.navButton} onClick={() => setRotation(!rotation)}>
@@ -40,7 +49,7 @@ const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchAct
             >
                 <img src="./img/dice.svg" alt="random" />
             </motion.button>
-            <button className={styles.navButton} onClick={() => setInfoActive(!infoActive)}>
+            <button className={styles.navButton} onClick={() => {setInfoActive(!infoActive);resetCamera()}}>
                 <img src="./img/info.svg" alt="place info" />
             </button>
         </div>

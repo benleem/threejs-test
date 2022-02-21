@@ -3,7 +3,7 @@ import InfoCard from './InfoCard';
 import MenuLoading from '../bar/MenuLoading'
 import styles from'./info-tab.module.css';
 
-const InfoTab = ({ wikiLoading, wikiData, infoActive }) => {
+const InfoTab = ({ wikiLoading, wikiData }) => {
     const checkLoading = () => {
         // check if loading state is active, if so return loading component
         if(wikiLoading === true){

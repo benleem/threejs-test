@@ -7,10 +7,11 @@
     max-width: 300px;
     z-index: -2;
     overflow-y: scroll;
+    padding: 0 1rem;
 }
 
 .noWikiInfo{
-    padding: 1rem;
+    padding: 1rem 0;
     font-weight: 600;
     font-size: 1.2rem;
     font-family: 'Archivo', sans-serif;

@@ -27,10 +27,10 @@ const PinTab = ({ setPinActive, setLatitude, setLongitude}) => {
             </form>
             <div className={styles.pinTip}>
                 <p>Tips</p>
-                <p className={styles.validLat}>Valid latitude values: -90 to 90</p>
-                <p className={styles.validLon}>Valid longitude values: -180 to 180</p>
-                <p className="tip01">Negative latitude values correspond to South and positive to North.</p>
-                <p className={styles.tip02}>Negative longitude values correspond to West and positve to East.</p>
+                <p className={styles.validLat}>- Valid latitude values: -90 to 90</p>
+                <p className={styles.validLon}>- Valid longitude values: -180 to 180</p>
+                <p className="tip01">- Negative latitude values correspond to South and positive to North.</p>
+                <p className={styles.tip02}>- Negative longitude values correspond to West and positve to East.</p>
                 <p>Example:</p>
                 <p>On Google, Mexico's coordinates are labeled as 23.6345° N, 102.5528° W.</p>
                 <p>To use it here simply input the latitude as 23.6345 and the longitude as -102.5528.</p>

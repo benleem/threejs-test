@@ -26,6 +26,7 @@ const App = () => {
     const [wikiLoading, setWikiLoading] = useState(false);
 
     const canvas = useRef();
+    const camera = useRef();
 
     const getInfo = async() => {
         try {
@@ -39,10 +40,10 @@ const App = () => {
         }
     }
       
-    const convertCoord = () =>{
+    const convertCoord = (lat, lon) =>{
         // convert provided latitiude and longitude to radians
-        let lonRad = -longitude * (Math.PI / 180); 
-        let latRad = latitude * (Math.PI / 180);
+        let latRad = lat * (Math.PI / 180);
+        let lonRad = -lon * (Math.PI / 180); 
         let d = 1;
 
         // convert radians to cartesian coordinates
@@ -52,7 +53,7 @@ const App = () => {
     }
     
     useEffect(() => {
-        convertCoord();
+        convertCoord(latitude, longitude);
         getInfo();
     }, [latitude, longitude]);
     
@@ -66,19 +67,23 @@ const App = () => {
                 wikiLoading={wikiLoading} 
                 wikiData={wikiData} 
                 rotation={rotation} 
-                setRotation={setRotation} 
+                setRotation={setRotation}
                 setLatitude={setLatitude} 
                 setLongitude={setLongitude}
+                pinX={pinX}
+                pinY={pinY}
+                pinZ={pinZ}
+                camera={camera}
                 />
                 <Canvas ref={canvas} style={{height:'100vh'}}>
                     <OrbitControls 
                     zoomSpeed={.4}
                     minDistance={1.2}
-                    maxDistance={2.5}
+                    maxDistance={4}
                     />
                     <ambientLight intensity={0.3}/>
                     <pointLight position={[100, 0, -30]} intensity={2} decay={2} castShadow/>
-                    <Earth canvas={canvas} rotation={rotation} x={pinX} y={pinY} z={pinZ}/>
+                    <Earth camera={camera} canvas={canvas} rotation={rotation} x={pinX} y={pinY} z={pinZ}/>
                     <Stars/>
                 </Canvas>
             </Suspense>
