@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { AnimatePresence } from "framer-motion";
 
@@ -14,6 +14,9 @@ const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, se
     const [pinActive, setPinActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [infoActive, setInfoActive] = useState(false);
+
+    const searchInputBar = useRef();
+    const pinInputBar = useRef()
 
     return (
         <div  className={styles.menuBar}>
@@ -31,11 +34,14 @@ const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, se
             pinY={pinY} 
             pinZ={pinZ} 
             camera={camera}
+            searchInputBar={searchInputBar}
+            pinInputBar={pinInputBar}
             />
             {pinActive ?
                 <PinTab setPinActive={setPinActive} 
                 setLatitude={setLatitude} 
-                setLongitude={setLongitude} 
+                setLongitude={setLongitude}
+                pinInputBar={pinInputBar}
                 />: 
                 null
             }
@@ -44,11 +50,11 @@ const MenuBar = ({ wikiLoading, wikiData, rotation, setRotation, setLatitude, se
                 setSearchActive={setSearchActive} 
                 setLatitude={setLatitude} 
                 setLongitude={setLongitude}
+                searchInputBar={searchInputBar}
                 />: 
                 null
             }
-            <AnimatePresence
-            initial={false}
+            <AnimatePresence initial={false}
             exitBeforeEnter={true}
             >
                 {infoActive ?

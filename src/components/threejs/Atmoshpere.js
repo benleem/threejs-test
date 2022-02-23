@@ -50,11 +50,22 @@ const Atmoshpere = () => {
         <group>
             <mesh position={[0,0,0]}>
                 <icosahedronBufferGeometry args={[1.0003, 32, 32]}/>
-                <shaderMaterial transparent={true} depthWrite={false} uniforms={innerUniforms} vertexShader={vertexShader} fragmentShader={fragmentShader} />
+                <shaderMaterial transparent={true} 
+                depthWrite={false} 
+                uniforms={innerUniforms} 
+                vertexShader={vertexShader} 
+                fragmentShader={fragmentShader} 
+                />
             </mesh>
             <mesh position={[0,0,0]}>
                 <icosahedronBufferGeometry args={[1.01, 32, 32]}/>
-                <shaderMaterial side={THREE.BackSide} transparent={true} depthWrite={false} uniforms={outerUniforms} vertexShader={vertexShader} fragmentShader={fragmentShader} />
+                <shaderMaterial side={THREE.BackSide} 
+                transparent={true} 
+                depthWrite={false} 
+                uniforms={outerUniforms} 
+                vertexShader={vertexShader} 
+                fragmentShader={fragmentShader} 
+                />
             </mesh>
         </group>
         

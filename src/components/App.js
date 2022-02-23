@@ -63,8 +63,7 @@ const App = () => {
         onMouseUp={() => (canvas.current.style.cursor = 'grab')}
         >
             <Suspense fallback={Loading()}> 
-                <MenuBar
-                wikiLoading={wikiLoading} 
+                <MenuBar wikiLoading={wikiLoading} 
                 wikiData={wikiData} 
                 rotation={rotation} 
                 setRotation={setRotation}
@@ -75,15 +74,26 @@ const App = () => {
                 pinZ={pinZ}
                 camera={camera}
                 />
-                <Canvas ref={canvas} style={{height:'100vh'}}>
-                    <OrbitControls 
-                    zoomSpeed={.4}
+                <Canvas ref={canvas} 
+                style={{height:'100vh'}}
+                >
+                    <OrbitControls zoomSpeed={.4}
                     minDistance={1.2}
                     maxDistance={4}
                     />
                     <ambientLight intensity={0.3}/>
-                    <pointLight position={[100, 0, -30]} intensity={2} decay={2} castShadow/>
-                    <Earth camera={camera} canvas={canvas} rotation={rotation} x={pinX} y={pinY} z={pinZ}/>
+                    <pointLight position={[100, 0, -30]} 
+                    intensity={2} 
+                    decay={2} 
+                    castShadow
+                    />
+                    <Earth camera={camera} 
+                    canvas={canvas} 
+                    rotation={rotation} 
+                    x={pinX} 
+                    y={pinY} 
+                    z={pinZ}
+                    />
                     <Stars/>
                 </Canvas>
             </Suspense>

@@ -26,12 +26,23 @@ const Earth = ({ camera , canvas, rotation, x, y, z }) => {
 
     return (
         <group ref={earth} position={[0,0,0]}>
-            <PerspectiveCamera ref={camera} makeDefault fov={90} position={[x, y, z]}/>
+            <PerspectiveCamera ref={camera} 
+            makeDefault fov={90} 
+            position={[x, y, z]}
+            />
             <mesh receiveShadow>
                 <sphereBufferGeometry args={[1,64,64]} />
-                <meshStandardMaterial map={map} bumpMap={bumpMap} bumpScale={0.05} roughness={1} metalness={0}/>
+                <meshStandardMaterial map={map} 
+                bumpMap={bumpMap} 
+                bumpScale={0.05} 
+                roughness={1} 
+                metalness={0}
+                />
             </mesh>
-            <Pin canvas={canvas} x={x} y={y} z={z}/>
+            <Pin x={x} 
+            y={y} 
+            z={z}
+            />
             <Atmoshpere/>
         </group>
     )

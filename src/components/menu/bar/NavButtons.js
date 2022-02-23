@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 
 import styles from './nav-buttons.module.css';
 
-const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchActive, setSearchActive, pinActive, setPinActive, infoActive, setInfoActive, pinX, pinY, pinZ, camera}) => {
+const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchActive, setSearchActive, pinActive, setPinActive, infoActive, setInfoActive, pinX, pinY, pinZ, camera, pinInputBar, searchInputBar}) => {
+    const [focus, setFocus] = useState('');
+
     // click variable for dice roll animation
     const [isClicked, setIsClicked] = useState(false);
+
 
     const randomize = () => {
         setIsClicked(!isClicked);
@@ -32,15 +35,25 @@ const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchAct
         }
     }
 
+    useEffect(() => {
+        if (focus === 'search' && searchActive === true) {
+            searchInputBar.current.focus();
+        }
+        else if (focus === 'pin' && pinActive === true) {
+            pinInputBar.current.focus();
+        }
+    }, [searchActive, pinActive, focus])
+    
+
     return (
         <div className={styles.navButtons}>
             <button className={styles.navButton} onClick={() => setRotation(!rotation)}>
                 <img src={rotation === true ? "./img/pause.svg" : "./img/play.svg"} alt="pause/play" />
             </button>
-            <button className={styles.navButton} onClick={() => {setSearchActive(!searchActive);setPinActive(false);}}>
+            <button className={styles.navButton} onClick={() => {setSearchActive(!searchActive);setPinActive(false);setFocus('search')}}>
                 <img src="./img/search.svg" alt="search" />
             </button>
-            <button className={styles.navButton} onClick={() => {setPinActive(!pinActive);setSearchActive(false)}}>
+            <button className={styles.navButton} onClick={() => {setPinActive(!pinActive);setSearchActive(false);setFocus('pin')}}>
                 <img src="./img/pin.svg" alt="pin" />
             </button>
             <motion.button className={styles.navButton} onClick={() => {randomize();setPinActive(false);setSearchActive(false)}}

@@ -5,7 +5,7 @@ import SearchCard from './SearchCard';
 import MenuLoading from '../bar/MenuLoading';
 import styles from './search-tab.module.css';
 
-const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }) => {
+const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude, searchInputBar }) => {
     const [searchLoading, setSearchLoading] = useState();
     const [cards, setCards] = useState([]);
 
@@ -24,8 +24,7 @@ const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }
                     {(cards.length < 1 && searchLoading === false)?
                         <p className={styles.searchError}>We do not have this location on record</p>:
                         cards.map(card => 
-                            <SearchCard 
-                            setInfoActive={setInfoActive} 
+                            <SearchCard setInfoActive={setInfoActive} 
                             setSearchActive={setSearchActive}  
                             setLatitude={setLatitude} 
                             setLongitude={setLongitude} 
@@ -61,7 +60,7 @@ const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude }
         transition={{type: 'spring', duration: 0.3, bounce: 0}}
         >
             <form className={styles.searchForm} onSubmit={(e) => handleSubmit(e)}>
-                <input autoComplete='off' type="text" name='search' placeholder='City/Country name'/>
+                <input ref={searchInputBar} autoComplete='off' type="text" name='search' placeholder='City/Country name'/>
                 <button>Submit</button>
             </form>
             {checkLoading()}
