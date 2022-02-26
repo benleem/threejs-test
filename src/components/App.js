@@ -78,7 +78,7 @@ const App = () => {
                 style={{height:'100vh'}}
                 >
                     <OrbitControls zoomSpeed={.4}
-                    minDistance={1.2}
+                    minDistance={1.15}
                     maxDistance={4}
                     />
                     <ambientLight intensity={0.3}/>

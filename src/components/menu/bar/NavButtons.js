@@ -9,6 +9,25 @@ const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchAct
     // click variable for dice roll animation
     const [isClicked, setIsClicked] = useState(false);
 
+    // const getUserLocation = async() => {
+    //     const getPosition = () => {
+    //         return new Promise((resolve, reject) => 
+    //             navigator.geolocation.getCurrentPosition(resolve, reject)
+    //         );
+    //     }
+
+    //     try {
+    //         setUserLocationLoading(true);
+    //         const position = await getPosition();
+    //         console.log(position.coords);
+    //         setLatitude(position.coords.latitude);
+    //         setLongitude(position.coords.longitude);
+    //         setUserLocationLoading(false);
+    //     } catch (err) {
+    //         console.error(err.message);
+    //         setUserLocationLoading(false);
+    //     }
+    // }
 
     const randomize = () => {
         setIsClicked(!isClicked);
@@ -51,18 +70,22 @@ const NavButtons = ({rotation, setRotation, setLatitude, setLongitude, searchAct
                 <img src={rotation === true ? "./img/pause.svg" : "./img/play.svg"} alt="pause/play" />
             </button>
             <button className={styles.navButton} onClick={() => {setSearchActive(!searchActive);setPinActive(false);setFocus('search')}}>
+                <span className={styles.toolTip}>Search for place</span>
                 <img src="./img/search.svg" alt="search" />
             </button>
             <button className={styles.navButton} onClick={() => {setPinActive(!pinActive);setSearchActive(false);setFocus('pin')}}>
+                <span className={styles.toolTip}>Set pin coordinates</span>
                 <img src="./img/pin.svg" alt="pin" />
             </button>
-            <motion.button className={styles.navButton} onClick={() => {randomize();setPinActive(false);setSearchActive(false)}}
-            animate={isClicked ? {rotate:360} : {rotate:0} }
-            transition={{duration: 0.3}}
-            >
-                <img src="./img/dice.svg" alt="random" />
-            </motion.button>
+            <button className={styles.navButton} onClick={() => {randomize();setPinActive(false);setSearchActive(false)}}>
+                <span className={styles.toolTip}>Feeling lucky?</span>
+                <motion.img src="./img/dice.svg" alt="random"
+                animate={isClicked ? {rotate:360} : {rotate:0} }
+                transition={{duration: 0.3}}
+                />
+            </button>
             <button className={styles.navButton} onClick={() => {setInfoActive(!infoActive);resetCamera()}}>
+                <span className={styles.toolTip}>Place information</span>
                 <img src="./img/info.svg" alt="place info" />
             </button>
         </div>

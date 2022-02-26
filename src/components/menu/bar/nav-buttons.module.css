@@ -5,19 +5,12 @@
 }
 
 .navButtons button:first-child{
-    margin-top: 0.85rem;
+    margin-top: 0.5rem;
     margin-bottom: 20px;
-}
-
-.navButtons button:nth-child(2){
-    margin-bottom: 20px;
-}
-
-.navButtons button:last-child{
-    margin-bottom: 0px;
 }
 
 .navButton{
+    position: relative;
     border: none;
     background: none;
     box-shadow: none;
@@ -27,6 +20,34 @@
 
 .navButton img{
     max-width: 35px;
+    display: inline;
+    height: 100%;
+}
+
+.toolTip{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    border-radius: 4px;
+    background-color: white;
+    z-index: -3;
+    padding: 0.3rem;
+    top: 50%;
+    left: 140%;
+    transform: translateY(-50%); 
+    transition: all 0.5s ease-in-out;
+    font-size: 0.7rem;
+    width: max-content;
+    pointer-events: none;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 300;
+    color: #36373d;
+}
+
+.navButton:hover .toolTip{
+    visibility: visible;
+    opacity: 1; 
 }
 
 @media (max-height: 450px) {
