@@ -3,8 +3,8 @@ import styles from './search-card.module.css';
 const SearchCard = ({ setInfoActive, setSearchActive, setLatitude, setLongitude, card }) => {
     const handlePinChange = () => {
         // update lat/lon state
-        setLatitude(card.lat);
-        setLongitude(card.lng);
+        setLatitude(Number(card.lat));
+        setLongitude(Number(card.lng));
 
         // close search tab
         setSearchActive(false);

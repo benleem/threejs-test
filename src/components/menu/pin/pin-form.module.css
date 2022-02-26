@@ -1,0 +1,61 @@
+.coordinateForm{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    color: white;
+    border: 1px solid white;
+    border-radius: .5rem;
+    overflow-y: hidden;
+}
+
+.coordinateForm div{
+    padding: 1rem;
+    vertical-align: bottom;
+    display: flex;
+    flex-direction: column;
+}
+
+.coordinateForm input{
+    /* border-radius: .5rem; */
+    height: min-content;
+    border: none;
+    color: white;
+    background-color: #36373d;
+    box-shadow: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 300;
+    margin: none;
+}
+
+.coordinateForm button{
+    padding: 1rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: #36373d;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+    border-top: 1px solid white;
+}
+
+.coordinateForm button:hover{
+    background-color: #36373d;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.coordinateForm div:nth-child(2){
+    border-top: 1px solid white;
+}
+
+.coordinateForm p{
+    padding-top: 0.3rem;
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: red;
+    pointer-events: none;
+}
