@@ -11,6 +11,7 @@ images go here       and here and here etc
 Technologies/Libraries used:
 - React
 - JSX
+- JavaScript
 - CSS
 - ThreeJs
 - Framer Motion
@@ -18,7 +19,7 @@ Technologies/Libraries used:
 
 The purpose of building Goggle Earth was to refine my front-end skills as well as to learn libraries such as ThreeJs and Framer Motion. Although it was originally supposed to be a play project for testing ThreeJs features, it quickly became much more. I got sucked into all the possibilities of ThreeJs and decided to make it an app with functionality reminiscent of Google Earth.
 
-Although this easily became my favorite project to date I did come across challenges plenty. For example, I had no experience with 3D development and had to scour docs, videos, and other projects to get a proper footing to start development.
+Although this easily became my favorite project to date I did come across challenges aplenty. For example, I had no experience with 3D development and had to scour docs, videos, and other projects to get a proper footing to start development.
 
 One such challenge was converting longitude and latitude values to 3D coordinates so that I could place a pin on Earth. To solve this I had to think back on my geometry days. To put it shortly, you must convert the latitude and longitude from degrees to radians. After this, you convert from radians to cartesian coordinates so you can plot points on 3 circular planes. Each one of these points on the planes then becomes x,y,z points, thus translating from 2D to 3D.
 

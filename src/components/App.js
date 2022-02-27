@@ -77,7 +77,7 @@ const App = () => {
                 <Canvas ref={canvas} 
                 style={{height:'100vh'}}
                 >
-                    <OrbitControls zoomSpeed={.4}
+                    <OrbitControls zoomSpeed={.3}
                     minDistance={1.15}
                     maxDistance={4}
                     />
