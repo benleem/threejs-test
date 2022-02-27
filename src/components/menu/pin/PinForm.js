@@ -6,7 +6,6 @@ const PinForm = ({ setPinActive, setLatitude, setLongitude, pinInputBar }) => {
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormValues({...formValues, [name]:value});
@@ -20,21 +19,17 @@ const PinForm = ({ setPinActive, setLatitude, setLongitude, pinInputBar }) => {
 
     const validate = (values) => {
         const errors = {};
-
         if (!values.latitude || values.latitude > 90 || values.latitude < -90) {
             errors.latitude = 'Please enter a number between -90 and 90';
         }
         if (!values.longitude || values.longitude > 180 || values.longitude < -180) {
             errors.longitude = 'Please enter a number between -180 and 180'
         }
-
         return errors;
     }
 
     useEffect(() => {
-        console.log(formErrors);
         if (Object.keys(formErrors).length === 0 && isSubmit === true) {
-            console.log(formValues);
             // update lon/lat state
             setLatitude(Number(formValues.latitude));
             setLongitude(Number(formValues.longitude));

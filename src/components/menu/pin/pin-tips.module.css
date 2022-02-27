@@ -1,0 +1,32 @@
+.pinTip{
+    margin: 1rem 0;
+}
+
+.pinTip p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.pinTip p:first-child{
+    font-weight: 400;
+    width: min-content;
+    font-size: 1.05rem;
+    border-bottom: 2px solid white;
+}
+
+.validLat{
+    padding-top: 0.3rem;
+}
+
+.validLon{
+    padding-bottom: 0.3rem;
+}
+
+.tip02{
+    padding-bottom: 0.3rem;
+}
+
+.highLight{
+    color: #8ab4f8;
+}

@@ -55,7 +55,6 @@ const App = () => {
     useEffect(() => {
         convertCoord(latitude, longitude);
         getInfo();
-        console.log(latitude, longitude)
     }, [latitude, longitude]);
     
     return (
