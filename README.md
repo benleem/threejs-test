@@ -6,6 +6,8 @@ The full site can be found here: site URL
 
 ![Demo image](https://drive.google.com/uc?export=view&id=1naqViHvB1R2lipcdEBc-jlGzxO81hunS)
 
+![Demo gif](https://drive.google.com/uc?export=view&id=1vBBfJdpQjJcnpoKbPwgR5jpVFjNwofJl)
+
 ## About This Project
 
 Technologies/Libraries used:
