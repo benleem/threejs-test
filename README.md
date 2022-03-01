@@ -4,7 +4,7 @@ Goggle Earth is an application that can be used to satisfy your curiosity about 
 
 The full site can be found here: site URL
 
-images go here       and here and here etc
+![Demo image](https://drive.google.com/uc?export=view&id=1naqViHvB1R2lipcdEBc-jlGzxO81hunS)
 
 ## About This Project
 
