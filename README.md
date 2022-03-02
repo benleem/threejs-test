@@ -1,12 +1,18 @@
 # Goggle Earth
 
+![Demo image](https://drive.google.com/uc?export=view&id=1naqViHvB1R2lipcdEBc-jlGzxO81hunS)
+
 Goggle Earth is an application that can be used to satisfy your curiosity about our great blue planet! Set a pin by entering a latitude and longitude in the pin tab or simply search for a place in the search tab. Once the pin has been placed by search or coordinates, info related to that place will show up in the info tab. To open the info tab simply click the info button.
 
 The full site can be found here: site URL
 
-![Demo image](https://drive.google.com/uc?export=view&id=1naqViHvB1R2lipcdEBc-jlGzxO81hunS)
+###### Search Demo:
 
-![Demo gif](https://drive.google.com/uc?export=view&id=1vBBfJdpQjJcnpoKbPwgR5jpVFjNwofJl)
+![Demo gif](https://drive.google.com/uc?export=view&id=12RuCP__V_WTtmCtM6NkG8uvPo0pRL5g5)
+
+###### Custom Pin Demo:
+
+![Demo gif](https://drive.google.com/uc?export=view&id=1-JiUWVwnCcBxbknSioZCOEfF6PtAr-ea)
 
 ## About This Project
 
