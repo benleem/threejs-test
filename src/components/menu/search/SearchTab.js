@@ -43,7 +43,7 @@ const SearchTab = ({ setInfoActive, setSearchActive, setLatitude, setLongitude, 
         try {
             // get data for cards from search variable
             setSearchLoading(true);
-            const data = await axios.get(`http://api.geonames.org/search?q=${search}&maxRows=25&type=json&username=${process.env.REACT_APP_ACCOUNT_KEY}`);
+            const data = await axios.get(`https://secure.geonames.org/search?q=${search}&maxRows=25&type=json&username=${process.env.REACT_APP_ACCOUNT_KEY}`);
             setCards(data.data.geonames);
             setSearchLoading(false);
         } catch (error) {

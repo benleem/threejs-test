@@ -32,7 +32,7 @@ const App = () => {
         try {
             //getting wikipedia data based on current coordinates
             setWikiLoading(true);
-            const response = await axios.get(`http://api.geonames.org/findNearbyWikipediaJSON?lat=${latitude}&lng=${longitude}&maxRows=10&username=${process.env.REACT_APP_ACCOUNT_KEY}`);
+            const response = await axios.get(`https://secure.geonames.org/findNearbyWikipediaJSON?lat=${latitude}&lng=${longitude}&maxRows=10&username=${process.env.REACT_APP_ACCOUNT_KEY}`);
             setWikiData(response.data.geonames);
             setWikiLoading(false);
         } catch (error) {
