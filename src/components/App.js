@@ -78,8 +78,11 @@ const App = () => {
                 style={{height:'100vh'}}
                 >
                     <OrbitControls zoomSpeed={.3}
+                    minZoom={1.15}
+                    maxZoom={4}
                     minDistance={1.15}
                     maxDistance={4}
+                    enablePan={false}
                     />
                     <ambientLight intensity={0.3}/>
                     <pointLight position={[100, 0, -30]} 
