@@ -3,7 +3,7 @@ import styles from './loading.module.css'
 const Loading = () => {
     return(
         <div className={styles.assetsLoading}>
-            <p className='assets-loading'>Loading...</p>
+            <h1 className='assets-loading'>Loading...</h1>
         </div>
     );
 };
